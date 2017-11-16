@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <title>Dados em listas</title>
+        <script type="text/javascript" src="d3.js"></script>
+    </head>
+    <body>
+        <script type="text/javascript">
+            var dados = [2, 3, 5, 7, 11, 13, 17];
+            d3.select("body")
+                .append("ul")
+                .selectAll("li")
+                .data(dados)
+                .enter()
+                .append("li")
+                .text(function(dado) {
+                    return "Valor = " + dado;
+                });
+        </script>
+    </body>
+</html>

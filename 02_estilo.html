@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <title>Elementos estilizados</title>
+        <script type="text/javascript" src="d3.js"></script>
+    </head>
+    <body>
+        <p>Marca - Preço</p>
+        <script type="text/javascript">
+            var dados = [["Audi", 27], ["BMW", 25], ["Chevrolet", 20],
+                        ["Ferrari", 146], ["FIAT", 12], ["Ford", 19]];
+            d3.select("body")
+                .selectAll("p")
+                .data(dados)
+                .enter()
+                .append("p")
+                .text(function(dado) {
+                    return dado[0] + " ~$" + dado[1] + "k";
+                })
+                .style("color", function(dado) {
+                    if (dado[1] > 100)
+                        return "red";
+                    else if (dado[1] > 20)
+                        return "orange";
+                    else
+                        return "green";
+                });
+        </script>
+    </body>
+</html>
