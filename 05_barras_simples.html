@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <title>Barras simples</title>
+        <script src="https://d3js.org/d3.v4.min.js"></script>
+    </head>
+    <body>
+        <script type="text/javascript">
+        var dados = [40, 80, 96, 76, 23, 42, 32, 90, 11, 22, 14];
+        var largura = 500,
+            altura = 100;
+
+        var svg = d3.select('body')
+          .append('svg').attr('width', largura).attr('height', altura);
+
+        var barras = svg.selectAll('rect')
+          .data(dados)
+          .enter()
+          .append('rect')
+          // Parte 1: Modifique os valores de x para separar as barras de lugar
+          .attr('x', 0) // Que tal uma função com dois parâmetros: d e i?
+          .attr('y', 0)
+          // Parte 2: Modifique a largura das barras para que elas sejam
+          //          proporcionais à largura da tela SVG
+          .attr('width', 20)
+          // Parte 3: Modifique a altura para representar os valores dos dados
+          //          ao invés do valor fixo 50
+          .attr('height', 50);
+          // Parte 4: Lembre-se que as coordenadas do SVG são invertidas.
+          //          Dê um jeito de exibir o gráfico de cabeça para cima
+
+          // Parte 5: Que tal mudar a cor das barras para steelblue?
+        </script>
+    </body>
+</html>
